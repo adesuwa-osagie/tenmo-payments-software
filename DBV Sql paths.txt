@@ -1,0 +1,17 @@
+BEGIN TRANSACTION;
+UPDATE accounts
+   Set balance = 5000.00
+   WHERE user_id = 1001;
+SELECT * FROM accounts;
+ROLLBACK;
+
+
+--Tracking the transactions
+BEGIN TRANSACTION;
+INSERT INTO transfers (transfer_type_id, transfer_status_id, account_from, account_to, amount)
+   VALUES(?, ?, ?, ?, ?);
+   --params: subquery to transfer_types - SELECT transfer_type_id FROM transfer_types WHERE transfer_type_desc = [FIRST ? PLACEHOLDER]
+   --params: subquery to transfer_statuses - SELECT transfer_status_id FROM transfer_statuses WHERE transfer_status_desc = [SECOND ? PLACEHOLDER]
+   --params: subquery to accounts - SELECT account_id FROM accounts WHERE user_id = [THIRD ? PLACEHOLDER] will be currentUser id
+   --params: subquery to accounts - SELECT account_ud FROM accounts WHERE user_id = [FOURTH ? PLACEHOLDER] will be receiverUser id
+   --params: userInput amout to transfer

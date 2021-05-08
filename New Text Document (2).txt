@@ -1,0 +1,24 @@
+@Test
+    public void update_user_Balance_test(){
+        //Arrange
+        //private Accounts makeAccount(Long id, Long userId, BigDecimal balance){
+        //make fakeAccount
+        boolean testUser2 = userDAO.create("Yellow", "Banana");
+        int testUser2Id = userDAO.findIdByUsername("Yellow");
+        Long testUser2IdLong = Long.valueOf(testUser2Id);
+
+        List<Accounts> accounts = accountsDAO.findAllAccounts();
+        //use findUserAccount to get the test user Account
+        Accounts theUpdatedAccount = accountsDAO.findCurrentUserAccount(TEST_USER_ID);
+        //insert that into the updatedUserBalance along with testUser2IdLong
+        accountsDAO.updateUserBalance(theUpdatedAccount, testUser2IdLong);
+
+        List<Accounts> accountsAgain = accountsDAO.findAllAccounts();
+
+        Accounts actual = accountsAgain.get(accounts.size() -1);
+
+        //Assert
+        //assertNotNull(accounts);
+        assertAccountsAreEqual(theUpdatedAccount, actual);
+
+    }

@@ -1,0 +1,27 @@
+Method attempted for Step 4
+-not needed for this project BUT maybe useful for something else in the future
+
+    /*        List<Long> userListIds = new ArrayList<>();
+            for (User theUser : users) {
+                if (!theUser.getId().equals(currentUser.getUser().getId())) {
+                    userListIds.add(theUser.getId());
+                }
+            }
+            System.out.print("Enter ID of user you are requesting from (0 to cancel): ");
+            Long receiverUser = (Long) console.getChoiceFromUserInput(userListIds.toArray());
+
+*//*
+            console.getUserInput("Enter amount")
+
+            Long receiverUser = (Long) console.getChoiceFromUserInputSend(userListIds);*//*
+
+            if (receiverUser != null){
+                break;
+            }*/
+
+//            else if (receiverUser == (//something)){
+//            mainMenu();// }
+        }
+//    }
+    //for (User theUser : users){
+    //System.out.println(theUser.getUsername());
