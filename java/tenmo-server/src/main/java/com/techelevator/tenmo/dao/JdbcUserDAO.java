@@ -21,10 +21,6 @@ public class JdbcUserDAO implements UserDAO {
     private static final BigDecimal STARTING_BALANCE = new BigDecimal("1000.00");
     private JdbcTemplate jdbcTemplate;
 
-    /*public JdbcUserDAO(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
-    }*/
-
     public JdbcUserDAO(DataSource dataSource){
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }

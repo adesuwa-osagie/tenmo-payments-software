@@ -15,10 +15,6 @@ public class JdbcTransfersDAO implements TransfersDAO {
 
     private JdbcTemplate jdbcTemplate;
 
-    /*public JdbcTransfersDAO(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
-    }*/
-
     public JdbcTransfersDAO(DataSource dataSource){
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }

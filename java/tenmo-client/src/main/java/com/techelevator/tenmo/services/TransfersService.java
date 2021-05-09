@@ -25,23 +25,6 @@ public class TransfersService {
         this.BASE_URL = url;
     }
 
-/**
- *HttpHeaders headers = new HttpHeaders();
- * headers.set("Accept", "application/json");
- *
- * Map<String, String> params = new HashMap<String, String>();
- * params.put("msisdn", msisdn);
- * params.put("email", email);
- * params.put("clientVersion", clientVersion);
- * params.put("clientType", clientType);
- * params.put("issuerName", issuerName);
- * params.put("applicationName", applicationName);
- *
- * HttpEntity entity = new HttpEntity(headers);
- *
- * HttpEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class, params);
- * */
-
     //A POST Request with query parameters
     public String addTransfer(String transferType, String transferStatus, Long currentUserId,
                             Long receiverUserId, BigDecimal amountToTransfer, String AUTH_TOKEN){
