@@ -39,15 +39,11 @@ public class AccountsService {
     //A PUT Request with a Request Body
     public Accounts updateUserBalance(BigDecimal updatedBalance, Long currentUserId, String AUTH_TOKEN) throws AccountsServiceException {
         Accounts accounts = new Accounts();
-        //What was done after 4-22-21, 2030 EST
         accounts.setUserId(currentUserId);
         accounts.setBalance(updatedBalance);
-/*        if (accounts == null){
-            throw new AccountsServiceException(INVALID_ACCOUNT_MSG);
-        }*/
+
         try {
             restTemplate.exchange(BASE_URL + "accounts/" + currentUserId, HttpMethod.PUT,
-                    //What was done after 4-22-21, 2030 EST
                     makeAccountsEntity(accounts, AUTH_TOKEN), Accounts.class);
         } catch (RestClientResponseException ex) {
             console.printError("Could not update the balance. Is the server running?");
@@ -78,15 +74,6 @@ public class AccountsService {
         HttpEntity entity = new HttpEntity<>(headers);
         return entity;
     }
-
-//    private HttpEntity<Reservation> makeReservationEntity(Reservation reservation) {
-//        HttpHeaders headers = new HttpHeaders();
-//        headers.setContentType(MediaType.APPLICATION_JSON);
-//        headers.setBearerAuth(AUTH_TOKEN);
-//        HttpEntity<Reservation> entity = new HttpEntity<>(reservation, headers);
-//        return entity;
-//    }
-
 
     private HttpEntity<Accounts> makeAccountsEntity(Accounts theAccountWithUpdatedBalance, String token) {
         HttpHeaders headers = new HttpHeaders();

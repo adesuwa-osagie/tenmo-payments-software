@@ -127,7 +127,6 @@ public class App {
                 }
                 if (!found) {
                     console.printError("Invalid transfer id!\n");
-//                    mainMenu();
                 }
             }
         } catch (NumberFormatException e) {
@@ -141,7 +140,7 @@ public class App {
     }
 
     private void sendBucks(Long currentUserId, String token) throws AccountsServiceException {
-//        while (true) {
+
             String transferType = "Send";
             printHeader();
             printListOfUsers(token, currentUser.getUser().getId());
@@ -164,9 +163,9 @@ public class App {
 
                             //Use the GET request(getBalance) to get current user's balance
                             BigDecimal currentUserBalance = accountsService.getBalance(currentUserId, token);
-                            //Check if the the amount is LESS THAN 0 OR GREATER THAN current user's balance
-//                        if (value.compareTo(BigDecimal.ZERO) > 0)
 
+                            //Check if the the amount is LESS THAN 0 OR GREATER THAN current user's balance
+                            //if (value.compareTo(BigDecimal.ZERO) > 0)
                             if (amount.compareTo(BigDecimal.ZERO) < 0 || amount.compareTo(currentUserBalance) > 0) {
                                 //if so,
                                 //prompt: "Insufficient funds to proceed"
@@ -211,7 +210,7 @@ public class App {
                 }
                 if (!found) {
                     console.printError("Invalid user id!\n");
-//                    mainMenu();
+
                 }
 
             }
